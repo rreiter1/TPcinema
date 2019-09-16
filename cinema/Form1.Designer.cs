@@ -32,6 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.B_Cherche_salle = new System.Windows.Forms.Button();
             this.L_Affiche_info_Sall = new System.Windows.Forms.Label();
+            this.L_saisie_nbPerso = new System.Windows.Forms.Label();
+            this.tb_nb_Personne = new System.Windows.Forms.TextBox();
+            this.ck_tarifred = new System.Windows.Forms.CheckBox();
+            this.Valider_Add_Personne = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tb_Cherch_Salle
@@ -70,11 +74,55 @@
             this.L_Affiche_info_Sall.Text = "affiche Les info de la salle rechercher";
             this.L_Affiche_info_Sall.Visible = false;
             // 
+            // L_saisie_nbPerso
+            // 
+            this.L_saisie_nbPerso.AutoSize = true;
+            this.L_saisie_nbPerso.Location = new System.Drawing.Point(28, 310);
+            this.L_saisie_nbPerso.Name = "L_saisie_nbPerso";
+            this.L_saisie_nbPerso.Size = new System.Drawing.Size(229, 13);
+            this.L_saisie_nbPerso.TabIndex = 4;
+            this.L_saisie_nbPerso.Text = "Nombre de Personne Voulant allez voir ce film :";
+            this.L_saisie_nbPerso.Visible = false;
+            // 
+            // tb_nb_Personne
+            // 
+            this.tb_nb_Personne.Location = new System.Drawing.Point(278, 307);
+            this.tb_nb_Personne.Name = "tb_nb_Personne";
+            this.tb_nb_Personne.Size = new System.Drawing.Size(100, 20);
+            this.tb_nb_Personne.TabIndex = 5;
+            this.tb_nb_Personne.Visible = false;
+            // 
+            // ck_tarifred
+            // 
+            this.ck_tarifred.AutoSize = true;
+            this.ck_tarifred.Location = new System.Drawing.Point(397, 310);
+            this.ck_tarifred.Name = "ck_tarifred";
+            this.ck_tarifred.Size = new System.Drawing.Size(86, 17);
+            this.ck_tarifred.TabIndex = 6;
+            this.ck_tarifred.Text = "tarif Reduit ?";
+            this.ck_tarifred.UseVisualStyleBackColor = true;
+            this.ck_tarifred.Visible = false;
+            // 
+            // Valider_Add_Personne
+            // 
+            this.Valider_Add_Personne.Location = new System.Drawing.Point(518, 305);
+            this.Valider_Add_Personne.Name = "Valider_Add_Personne";
+            this.Valider_Add_Personne.Size = new System.Drawing.Size(75, 23);
+            this.Valider_Add_Personne.TabIndex = 7;
+            this.Valider_Add_Personne.Text = "Valider";
+            this.Valider_Add_Personne.UseVisualStyleBackColor = true;
+            this.Valider_Add_Personne.Visible = false;
+            this.Valider_Add_Personne.Click += new System.EventHandler(this.Valider_Add_Personne_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 566);
+            this.Controls.Add(this.Valider_Add_Personne);
+            this.Controls.Add(this.ck_tarifred);
+            this.Controls.Add(this.tb_nb_Personne);
+            this.Controls.Add(this.L_saisie_nbPerso);
             this.Controls.Add(this.L_Affiche_info_Sall);
             this.Controls.Add(this.B_Cherche_salle);
             this.Controls.Add(this.label1);
@@ -92,6 +140,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button B_Cherche_salle;
         private System.Windows.Forms.Label L_Affiche_info_Sall;
+        private System.Windows.Forms.Label L_saisie_nbPerso;
+        private System.Windows.Forms.TextBox tb_nb_Personne;
+        private System.Windows.Forms.CheckBox ck_tarifred;
+        private System.Windows.Forms.Button Valider_Add_Personne;
     }
 }
 

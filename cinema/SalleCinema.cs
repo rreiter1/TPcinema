@@ -32,26 +32,27 @@ namespace cinema
         {
             return this.nbPlaces - (this.nbPlacesSelln + this.nbPlacesSellr);
         }
-        public void vendrePlaces(int nbre, bool tarifReduit)
+        public string vendrePlaces(int nbre, bool tarifReduit)
         {
+            string text;
             if ((this.nbPlacesDisponibles() - nbre) >= 0)
             {
-                string textPrixaPayer;
                 if(tarifReduit)
                 {
                     this.nbPlacesSellr += nbre;
-                    textPrixaPayer = "Le Prix a Payer est de "+((this.prixUnormal*0.8)*nbre);
+                    text = "Le Prix a Payer est de "+((this.prixUnormal*0.8)*nbre);
                 }
                 else
                 {
                     this.nbPlacesSelln += nbre;
-                    textPrixaPayer = "Le prix a Payer est de " + (this.prixUnormal * nbre);
+                    text = "Le prix a Payer est de " + (this.prixUnormal * nbre);
                 }
             }
             else
             {
-                string rejet = "Nous ne disposont pas assez de place pour tous ces gens nous avont "+ this.nbPlacesDisponibles() + " de disponible";
+                text = "Nous ne disposont pas assez de place pour tous ces gens nous avont "+ this.nbPlacesDisponibles() + " de disponible";
             }
+            return text;
         }        public void remiseAZero()
         {
             this.nbPlacesSelln = 0;
