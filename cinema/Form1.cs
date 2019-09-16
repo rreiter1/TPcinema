@@ -14,24 +14,34 @@ namespace cinema
     {
         private List<SalleCinema> LesSalles;
         private int numSalleSaisie;
+
+        public void InfoALLsalle()
+        {
+            string text = "";
+            double chiffreaffaire = 0;
+            foreach (SalleCinema LaSalle in LesSalles)
+            {
+                text += "\n\n\nVoici les informations pour la Salle n° " + LaSalle.getNumSalle() + "\n";
+                text += LaSalle.toString();
+                text += "\n La Salle est occuper a " + LaSalle.tauxRemplissage() + " et obtien un chiffre d'affaire de " + LaSalle.chiffreAffaires();
+                chiffreaffaire += LaSalle.chiffreAffaires();                    
+            }
+            text += "\n\n\nLe Chiffre d'affaire total est de " + chiffreaffaire;
+            Lb_All_salle.Text = text;
+
+        }
+
         public Form1()
         {
             InitializeComponent();
             SalleCinema uneSalle = new SalleCinema("LeFilme", 80, 1.99,1);
             SalleCinema deuxSalle = new SalleCinema("LaCodeuse", 20, 0.99,2);
             SalleCinema troisSalle = new SalleCinema("LesCodeure", 120, 2.99,3);
-            SalleCinema quatreSalle = new SalleCinema("toto", 45, 8.49,4);
-            SalleCinema cinqSalle = new SalleCinema("Laclef", 354, 4.99,5);
-            SalleCinema sixSalle = new SalleCinema("LaChose", 10, 10.99,6);
-            SalleCinema septSalle = new SalleCinema("LaTomate", 1, 1.99,7);
             LesSalles = new List<SalleCinema>();
             LesSalles.Add(uneSalle);
             LesSalles.Add(deuxSalle);
             LesSalles.Add(troisSalle);
-            LesSalles.Add(quatreSalle);
-            LesSalles.Add(cinqSalle);
-            LesSalles.Add(sixSalle);
-            LesSalles.Add(septSalle);
+            InfoALLsalle();
         }
 
         private void B_Cherche_salle_Click(object sender, EventArgs e)
@@ -43,7 +53,9 @@ namespace cinema
                     if(LaSalle.getNumSalle()==Convert.ToInt32(tb_Cherch_Salle.Text))
                     {
                         numSalleSaisie = Convert.ToInt32(tb_Cherch_Salle.Text);
+                        L_numSalle.Text = "Voici les caracteristique de la salle n°"+numSalleSaisie;
                         L_Affiche_info_Sall.Text = LaSalle.toString();
+                        L_numSalle.Visible = true;
                         L_Affiche_info_Sall.Visible = true;
                         L_saisie_nbPerso.Visible = true;
                         tb_nb_Personne.Visible = true;
@@ -51,7 +63,28 @@ namespace cinema
                         Valider_Add_Personne.Visible = true;
                         break;
                     }
+                    else
+                    {
+                        L_numSalle.Visible = false;
+                        L_Affiche_info_Sall.Visible = false;
+                        L_saisie_nbPerso.Visible = false;
+                        tb_nb_Personne.Visible = false;
+                        ck_tarifred.Visible = false;
+                        Valider_Add_Personne.Visible = false;
+                        //MessageBox.Show("Cette Salle n'existe Pas ");
+                    }
                 }
+                
+            }
+            else
+            {
+                L_numSalle.Visible = false;
+                L_Affiche_info_Sall.Visible = false;
+                L_saisie_nbPerso.Visible = false;
+                tb_nb_Personne.Visible = false;
+                ck_tarifred.Visible = false;
+                Valider_Add_Personne.Visible = false;
+                MessageBox.Show("indique un n° de salle avant de valider");
             }
         }
         private void Valider_Add_Personne_Click(object sender, EventArgs e)
@@ -62,12 +95,12 @@ namespace cinema
                 {
                     if (LaSalle.getNumSalle() == numSalleSaisie)
                     {
-                        if(LaSalle.nbPlacesDisponibles()==)
-
+                        MessageBox.Show(LaSalle.vendrePlaces(Convert.ToInt32(tb_nb_Personne.Text), ck_tarifred.Checked));                        
                         L_Affiche_info_Sall.Text = LaSalle.toString();
                         break;
                     }
                 }
+                InfoALLsalle();
             }
         }
     }

@@ -50,22 +50,27 @@ namespace cinema
             }
             else
             {
-                text = "Nous ne disposont pas assez de place pour tous ces gens nous avont "+ this.nbPlacesDisponibles() + " de disponible";
+                text = "Nous ne disposont pas assez de place pour tous ces gens nous avont "+ this.nbPlacesDisponibles() + " de Place disponible";
             }
             return text;
-        }        public void remiseAZero()
+        }
+        public void remiseAZero()
         {
             this.nbPlacesSelln = 0;
             this.nbPlacesSellr = 0;
-        }        public double chiffreAffaires()
+        }
+        public double chiffreAffaires()
         {
             return ((this.prixUnormal * 0.8) * this.nbPlacesSellr) + (this.prixUnormal * this.nbPlacesSelln);
-        }        public double tauxRemplissage()
+        }
+        public double tauxRemplissage()
         {
             int nbplaceVendu = (nbPlacesSelln + nbPlacesSellr);
-            return nbplaceVendu / this.nbPlaces * 100;
-        }        public String toString()
+            return (nbplaceVendu *100) / this.nbPlaces;
+        }
+        public String toString()
         {
-            return "Film Joué : " + this.titre + ",\nNombre de Place : " + this.nbPlaces + ",\nPrix d'une Place : " + this.prixUnormal + "€,\n" + this.nbPlacesSelln + " places vendues au tarif normal,\n"+ this.nbPlacesSellr + " places vendues au tarif réduit.";        }
+            return "Film Joué : " + this.titre + ",\nNombre de Place : " + this.nbPlaces + ",\nPrix d'une Place : " + this.prixUnormal + "€,\n" + this.nbPlacesSelln + " places vendues au tarif normal,\n"+ this.nbPlacesSellr + " places vendues au tarif réduit.";
+        }
     }
 }
