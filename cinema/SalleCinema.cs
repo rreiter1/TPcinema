@@ -13,15 +13,20 @@ namespace cinema
         private double prixUnormal;
         private int nbPlacesSelln;
         private int nbPlacesSellr;
+        private int numeroSalle;
 
-
-        public SalleCinema(string t, int nbP, double prix)
+        public SalleCinema(string t, int nbP, double prix, int numSalle)
         {
             this.titre = t;
             this.nbPlaces = nbP;
             this.prixUnormal = prix;
             this.nbPlacesSelln = 0;
             this.nbPlacesSellr = 0;
+            this.numeroSalle = numSalle;
+        }
+        public int getNumSalle()
+        {
+            return this.numeroSalle;
         }
         public int nbPlacesDisponibles()
         {
@@ -60,6 +65,6 @@ namespace cinema
             return nbplaceVendu / this.nbPlaces * 100;
         }        public String toString()
         {
-            return "Pour une salle de " + this.nbPlaces + " places jouant le film '" + this.titre + "' dont " + this.nbPlacesSelln + " places ont été vendues au tarif normal" + this.prixUnormal+ " et " + this.nbPlacesSellr + " places ont été vendues au tarif réduit";        }
+            return "Film Joué : " + this.titre + ",\nNombre de Place : " + this.nbPlaces + ",\nPrix d'une Place : " + this.prixUnormal + "€,\n" + this.nbPlacesSelln + " places vendues au tarif normal,\n"+ this.nbPlacesSellr + " places vendues au tarif réduit.";        }
     }
 }
